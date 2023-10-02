@@ -1,7 +1,7 @@
 <?php
 $config = require __DIR__ . "/../../config/config.php";
 $dataBase = new DataBase($config["dataBase"]);
-require __DIR__ . "/../Validator.php";
+require __DIR__ . "/../../Validator.php";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $errors = [];

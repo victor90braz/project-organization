@@ -3,9 +3,9 @@
 return [
   "/" => "./controllers/HomeController.php",
   "/about" => "./controllers/AboutController.php",
-  "/notes" => "./controllers/notes/NotesController.php",
-  "/note" => "./controllers/notes/NoteController.php",
-  "/notes/create" => "./controllers/notes/NotesCreateController.php",
+  "/notes" => "./controllers/notes/index.php",
+  "/note" => "./controllers/notes/show.php",
+  "/notes/create" => "./controllers/notes/create.php",
 ];
 
 ?>
