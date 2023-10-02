@@ -28,5 +28,5 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 }
 
-include __DIR__ . "/../../views/noteCreate.php";
+include __DIR__ . "/../../views/notes/create.php";
 ?>

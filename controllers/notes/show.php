@@ -9,4 +9,4 @@ $currentUserId = 1;
 $checkUser = $note['user_id'] === $currentUserId;
 authorize($checkUser);
 
-include __DIR__ . "/../../views/note.php";
+include __DIR__ . "/../../views/notes/show.php";

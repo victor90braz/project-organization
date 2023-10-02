@@ -1,5 +1,6 @@
-<?php include __DIR__ . '/partials/banner.php'; ?>
-<?php include __DIR__ . '/partials/nav.php'; ?>
+<?php include __DIR__ . "/../partials/banner.php" ?>
+<?php include __DIR__ . '/../partials/nav.php'; ?>
+
 <main>
     <h1>My Notes</h1>
     <ol>
@@ -14,4 +15,4 @@
         <a href="/notes/create">Create Notes</a>
     </p>
 </main>
-<?php include __DIR__ . '/partials/footer.php'; ?>
+<?php include __DIR__ . '/../partials/footer.php'; ?>

@@ -1,5 +1,5 @@
-<?php include __DIR__ . "/partials/banner.php" ?>
-<?php include __DIR__ . '\partials\nav.php' ?>
+<?php include __DIR__ . "/../partials/banner.php" ?>
+<?php include __DIR__ . '/../partials/nav.php' ?>
 
 <main>
   <div class="container-form">
