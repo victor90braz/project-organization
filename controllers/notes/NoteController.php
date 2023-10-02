@@ -1,5 +1,5 @@
 <?php
-$config = require __DIR__ . "/../config/config.php";
+$config = require __DIR__ . "/../../config/config.php";
 $dataBase = new DataBase($config["dataBase"]);
 
 $selectQuery = "SELECT * from notes where id = :id";
@@ -9,5 +9,4 @@ $currentUserId = 1;
 $checkUser = $note['user_id'] === $currentUserId;
 authorize($checkUser);
 
-include __DIR__ . "/../views/note.php";
-
+include __DIR__ . "/../../views/note.php";
