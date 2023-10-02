@@ -1,7 +1,7 @@
 ````markdown
-# Laracasts Course - Session 3
+# Laracasts Course - Session 4
 
-GitHub Repository: [Notes Mini Project](https://github.com/victor90braz/notes-mini-project)
+GitHub Repository: [Project Organization](https://github.com/victor90braz/project-organization)
 
 ## Laravel Setup with Laragon
 
