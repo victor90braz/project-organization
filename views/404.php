@@ -1,9 +1,14 @@
-<?php include __DIR__ . '/partials/banner.php'; ?>
+<?php require('partials/head.php') ?>
+<?php require('partials/nav.php') ?>
 
-<div class="bg-white p-8 rounded-lg shadow-lg text-center">
-    <h1 class="text-4xl font-semibold text-gray-800">404 - Page Not Found</h1>
-    <p class="text-gray-600 mt-2">Sorry, the page you are looking for could not be found.</p>
-    <a href="/" class="text-blue-500 mt-4 hover:underline">Go back to the homepage</a>
-</div>
+<main>
+    <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+        <h1 class="text-2xl font-bold">Sorry. Page Not Found.</h1>
 
-<?php include __DIR__ . '/partials/footer.php'; ?>
+        <p class="mt-4">
+            <a href="/" class="text-blue-500 underline">Go back home.</a>
+        </p>
+    </div>
+</main>
+
+<?php require('partials/footer.php') ?>

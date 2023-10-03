@@ -1,12 +1,17 @@
 <?php
-$config = require __DIR__ . "/../../config/config.php";
-$dataBase = new DataBase($config["dataBase"]);
 
-$selectQuery = "SELECT * from notes where id = :id";
-$note = $dataBase->query($selectQuery, ['id' => $_GET['id']])->findOrFail();
+$config = require base_path('config.php');
+$db = new Database($config['database']);
 
 $currentUserId = 1;
-$checkUser = $note['user_id'] === $currentUserId;
-authorize($checkUser);
 
-include __DIR__ . "/../../views/notes/show.php";
+$note = $db->query('select * from notes where id = :id', [
+    'id' => $_GET['id']
+])->findOrFail();
+
+authorize($note['user_id'] === $currentUserId);
+
+view("notes/show.view.php", [
+    'heading' => 'Note',
+    'note' => $note
+]);

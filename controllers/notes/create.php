@@ -1,32 +1,24 @@
 <?php
-$config = require __DIR__ . "/../../config/config.php";
-$dataBase = new DataBase($config["dataBase"]);
-require __DIR__ . "/../../Validator.php";
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $errors = [];
-    $noteBody = $_POST["body"];
-    $userId = 1;
+$config = require base_path('config.php');
+$db = new Database($config['database']);
 
-    $query = "INSERT INTO notes (body, user_id) VALUES (:body, :user_id)";
-    $params = [":body" => $noteBody, ":user_id" => $userId];
+$errors = [];
 
-    if (!Validator::string($noteBody, 1, 1000)) {
-        $errors['body'] = 'A body of no more then 1,000 characters is required.';
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (! Validator::string($_POST['body'], 1, 1000)) {
+        $errors['body'] = 'A body of no more than 1,000 characters is required.';
     }
 
     if (empty($errors)) {
-        try {
-            $dataBase->query($query, $params);
-            http_response_code(Response::CREATED);
-            echo "Note successfully created.";
-        } catch (PDOException $e) {
-            http_response_code(Response::INTERNAL_SERVER_ERROR);
-            echo "Error creating note: " . $e->getMessage();
-        }
+        $db->query('INSERT INTO notes(body, user_id) VALUES(:body, :user_id)', [
+            'body' => $_POST['body'],
+            'user_id' => 1
+        ]);
     }
-
 }
 
-include __DIR__ . "/../../views/notes/create.php";
-?>
+view("notes/create.view.php", [
+    'heading' => 'Create Note',
+    'errors' => $errors
+]);

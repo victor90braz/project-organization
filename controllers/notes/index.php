@@ -1,9 +1,11 @@
 <?php
 
-$config = require __DIR__ . "/../../config/config.php";
-$dataBase = new DataBase($config["dataBase"]);
+$config = require base_path('config.php');
+$db = new Database($config['database']);
 
-$notes = $dataBase->query("SELECT * from notes where user_id = 1")->findAll();
+$notes = $db->query('select * from notes where user_id = 1')->get();
 
-include __DIR__ . "/../../views/notes/index.php";
-
+view("notes/index.view.php", [
+    'heading' => 'My Notes',
+    'notes' => $notes
+]);
