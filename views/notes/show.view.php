@@ -15,6 +15,8 @@
             <input type="hidden" name="id" value="<?= $note['id'] ?>">
             <button class="text-sm text-red-500">Delete</button>
         </form>
+
+        <a href="/note/edit" class="text-sm text-yellow-500">Edit</a>
     </div>
 </main>
 
