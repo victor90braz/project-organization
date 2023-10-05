@@ -1,11 +1,12 @@
 <?php
 
 use Core\Database;
+use Core\Response;
 
 $config = require base_path('config.php');
 $db = new Database($config['database']);
 
-$currentUserId = 3;
+$currentUserId = Response::CURRENT_USER_ID;
 
 // Kinda gross, yes? We'll refactor toward a cleaner approach in episode 33.
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

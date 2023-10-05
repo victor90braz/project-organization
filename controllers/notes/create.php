@@ -1,10 +1,12 @@
 <?php
 
 use Core\Database;
+use Core\Response;
 use Core\Validator;
 
 $config = require base_path('config.php');
 $db = new Database($config['database']);
+$currentUserId = Response::CURRENT_USER_ID;
 
 $errors = [];
 
@@ -16,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($errors)) {
         $db->query('INSERT INTO notes(body, user_id) VALUES(:body, :user_id)', [
             'body' => $_POST['body'],
-            'user_id' => 3
+            'user_id' => $currentUserId
         ]);
     }
 }
