@@ -1,12 +1,11 @@
 <?php
 
+use Core\App;
 use Core\Database;
-use Core\Response;
 
-$config = require base_path('config.php');
-$db = new Database($config['database']);
+$db = App::resolve(Database::class);
 
-$currentUserId = Response::CURRENT_USER_ID;
+$currentUserId = 3;
 
 $note = $db->query('select * from notes where id = :id', [
     'id' => $_GET['id']
